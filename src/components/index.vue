@@ -1,5 +1,5 @@
 <template>
-  <el-container id="index-box">
+  <el-container id="index-box" v-cloak>
     <!-- //头部 -->
     <el-header class="header">
       <el-row>
@@ -17,7 +17,7 @@
         </el-col>
         <el-col :span="4">
           <div class="grid-content bg-purple">
-            <a href="#" class="el-icon-loading logout" title="退出登录"></a>
+            <a href="#" class="el-icon-loading logout" @click="userLogout" title="退出登录"></a>
           </div>
         </el-col>
       </el-row>
@@ -74,7 +74,7 @@
               <span>订单管理</span>
             </template>
             <el-menu-item-group class="nav-ul">
-              <el-menu-item index='/orderList'>
+              <el-menu-item index="/orderList">
                 <i class="el-icon-s-order"></i>订单列表
               </el-menu-item>
             </el-menu-item-group>
@@ -85,7 +85,7 @@
               <span>数据统计</span>
             </template>
             <el-menu-item-group class="nav-ul">
-              <el-menu-item index='/datas'>
+              <el-menu-item index="/datas">
                 <i class="el-icon-s-order"></i>数据报表
               </el-menu-item>
             </el-menu-item-group>
@@ -102,7 +102,26 @@
 
 <script>
 export default {
-  name: "index.vue"
+  name: "index.vue",
+  data(){
+    return{
+      
+    }
+  },
+  
+ beforeCreate() {
+    const info = JSON.parse(sessionStorage.getItem('userInfo'))
+    if(!info){
+      location = '/#/login'
+      return
+    }
+  },
+  methods: {
+    userLogout(){
+      sessionStorage.removeItem('userInfo')
+      location = '/'
+    }
+  },
 };
 </script>
 

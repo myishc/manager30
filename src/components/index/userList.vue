@@ -21,7 +21,7 @@
       <el-table-column prop="mobile" label="手机"></el-table-column>
       <el-table-column prop="email" label="邮箱"></el-table-column>
       <el-table-column prop="status" label="状态">
-        <el-switch active-color="#13ce66" inactive-color="#ff4949"></el-switch>
+        <el-switch v-model="isoff" active-color="#13ce66" inactive-color="#ff4949"></el-switch>
       </el-table-column>
       <el-table-column prop="operation" label="操作">
         
@@ -29,6 +29,7 @@
     </el-table>
     <el-pagination
       class="page"
+      background
       :current-page="1"
       :page-sizes="[1, 2, 3, 4]"
       :page-size="100"
@@ -43,6 +44,7 @@ export default {
   name: "userList.vue",
   data() {
     return {
+      isoff: true,
       tableData: [
         {
           num: "1",
