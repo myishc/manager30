@@ -2,7 +2,7 @@
   <div class="login">
     <div class="center-box">
       <el-form label-position="top" label-width="80px">
-        <i class="el-icon-s-custom user"></i>
+        <i class="el-icon-s-custom user-icon"></i>
         <el-form-item label="用户名">
           <el-input></el-input>
         </el-form-item>
@@ -37,15 +37,13 @@ body {
     justify-content: center;
     .center-box {
       width: 480px;
-      height: 360px;
+      height: 350px;
       background-color: #fff;
       border-radius: 10px;
       padding: 30px;
       position: relative;
-      .user{
+      .user-icon{
           position: absolute;
-        //   width: 100px;
-        //   height: 100px;
           font-size: 100px;
           border-radius: 50%;
           top: -70px;
